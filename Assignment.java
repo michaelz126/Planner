@@ -16,11 +16,11 @@ class Assignment {
     }
 
     public String toString() {
-        return "Assignment{" +
-                "name='" + name + '\'' +
-                ", subject='" + subject + '\'' +
-                ", dueDate=" + dueDate +
-                ", isMajor=" + isMajor +
+        String type = isMajor ? "MAJOR" : "MINOR";
+        return "Assignment{" + name + 
+                ", " + subject + 
+                ", " + dueDate +
+                ", " + type +
                 '}';
     }
 }
