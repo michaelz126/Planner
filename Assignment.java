@@ -23,4 +23,16 @@ class Assignment {
                 ", " + type +
                 '}';
     }
+    public String getName() {
+        return name;
+    }
+    public String getSubject() {
+        return subject;
+    }
+    public String getDueDate() {
+        return dueDate;
+    }
+    public boolean isMajor() {
+        return isMajor;
+    }
 }

@@ -19,5 +19,37 @@ public class Planner {
         }
     }
 
+    public void viewAssignmentsBySubject(String subject) {
+        for (Assignment assignment : assignments) {
+            if (assignment.getSubject().equalsIgnoreCase(subject)) {
+                System.out.println(assignment);
+            }
+        }
+    }
+    public void viewAssignmentsByDate(String date) {
+        for (Assignment assignment : assignments) {
+            if (assignment.getDueDate().equals(date)) {
+                System.out.println(assignment);
+            }
+        }
+    }
+    public void viewMajorAssignments() {
+        for (Assignment assignment : assignments) {
+            if (assignment.isMajor()) {
+                System.out.println(assignment);
+            }
+        }
+    }
+    public void viewMinorAssignments() {
+        for (Assignment assignment : assignments) {
+            if (!assignment.isMajor()) {
+                System.out.println(assignment);
+            }
+        }
+    }
+    public void removeAssignment(String name) {
+        assignments.removeIf(assignment -> assignment.getName().equalsIgnoreCase(name));
+    }
 
+    
 }
