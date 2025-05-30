@@ -2,13 +2,14 @@ import java.util.Scanner;
 import java.util.ArrayList;
 public class Planner {
     private ArrayList<Assignment> assignments;
-    private Scanner scanner;
     private ArrayList<Assignment> completedAssignments;
 
-    public Planner() {
-        assignments = new ArrayList<>();
-        scanner = new Scanner(System.in);
+    public Planner(Assignment[] a) {
+        for (Assignment assignment : a) {
+            assignments.add(assignment);
+        }
     }
+
 
     public void addAssignment(Assignment a) {
         assignments.add(a);
@@ -27,13 +28,12 @@ public class Planner {
             }
         }
     }
-    public void viewAssignmentsByDate(String date) {
-        for (Assignment assignment : assignments) {
-            if (assignment.getDueDate().equals(date)) {
-                System.out.println(assignment);
-            }
+    public void viewAssignmentsDueInDays(int days) {
+        for (Assignment a : assignments) {
+            if ()
         }
     }
+
     public void viewMajorAssignments() {
         for (Assignment assignment : assignments) {
             if (assignment.isMajor()) {
@@ -47,9 +47,6 @@ public class Planner {
                 System.out.println(assignment);
             }
         }
-    }
-    public void removeAssignment(String name) {
-        assignments.removeIf(assignment -> assignment.getName().equalsIgnoreCase(name));
     }
 
     public void viewMajorAssignmentsBySubject(String subject) {

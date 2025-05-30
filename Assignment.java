@@ -1,6 +1,3 @@
-import java.time.LocalDate;
-
-
 class Assignment {
     private String name;
     private String subject;
@@ -16,13 +13,12 @@ class Assignment {
     }
 
     public String toString() {
-        String type = isMajor ? "MAJOR" : "MINOR";
-        return "Assignment{" + name + 
-                ", " + subject + 
-                ", " + dueDate +
-                ", " + type +
-                '}';
+        String type = "";
+        if (isMajor) type = "MAJOR";
+        else type = "MINOR";
+        return "Assignment{" + name + ", " + subject + ", " + dueDate + ", " + type + "}";
     }
+
     public String getName() {
         return name;
     }
