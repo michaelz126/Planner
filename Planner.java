@@ -10,9 +10,10 @@ public class Planner {
         }
     }
 
-
-    public void addAssignment(Assignment a) {
-        toDoList.add(a);
+    public void addToCompletedList(Assignment[] a) { // Adds multiple assignments to the completed list for the setup
+        for (Assignment assignment : a) {
+            completedAssignments.add(assignment);
+        }
     }
     
     public void viewAssignments() {
@@ -21,7 +22,7 @@ public class Planner {
         }
     }
 
-    public void viewAssignmentsBySubject(String subject) {
+    public void viewAssignmentsBySubject(String subject) { //Option 1
         boolean found = false;
         for (Assignment assignment : toDoList) {
             if (assignment.getSubject().equalsIgnoreCase(subject)) {
@@ -29,21 +30,19 @@ public class Planner {
             found = true;
             }
         }
-
         if (!found) {
             System.out.println("Subject not found");
         } else {
-
         System.out.println("\nAssignments for subject: " + subject);
         System.out.println("============================");
         for (Assignment assignment : toDoList) {
-            if (assignment.getSubject().equalsIgnoreCase(subject)) {
+            if (assignment.getSubject().equalsIgnoreCase(subject)) 
                 System.out.println(assignment);
-                }
             }
         }
-    }   
-    public void viewAssignmentsDueInDays(int days) {
+    }
+
+    public void viewAssignmentsDueInDays(int days) { //Option 2
         LocalDate today = LocalDate.now();
         for (Assignment a : toDoList) {
             LocalDate dueDate = LocalDate.parse(a.getDueDate());
@@ -53,16 +52,16 @@ public class Planner {
             }
         }
     }
-    
 
-    public void viewMajorAssignments() {
+    public void viewMajorAssignments() { //Option 3
         for (Assignment assignment : toDoList) {
             if (assignment.isMajor()) {
                 System.out.println(assignment);
             }
         }
     }
-    public void viewMinorAssignments() {
+
+    public void viewMinorAssignments() { //Option 4
         for (Assignment assignment : toDoList) {
             if (!assignment.isMajor()) {
                 System.out.println(assignment);
@@ -70,8 +69,14 @@ public class Planner {
         }
     }
 
+    public void viewCompletedAssignments() { //Option 5
+        for (Assignment assignment : completedAssignments) {
+            System.out.println(assignment);
+        }
+    }
 
-    public void markAssignmentAsCompleted(String name) {
+
+    public void markAssignmentAsCompleted(String name) { //Option 6
         for (Assignment assignment : toDoList) {
             if (assignment.getName().equalsIgnoreCase(name)) {
                 completedAssignments.add(assignment);
@@ -83,19 +88,8 @@ public class Planner {
         System.out.println("Assignment not found.");
     }
 
-    public void viewCompletedAssignments() {
-        for (Assignment assignment : completedAssignments) {
-            System.out.println(assignment);
-        }
-    }
 
-    public void addToCompletedList(Assignment[] a) {
-        for (Assignment assignment : a) {
-            completedAssignments.add(assignment);
-        }
-    }
-
-    public void viewLateAssignments() {
+    public void viewLateAssignments() { //Option 7
         int count = 0;
         LocalDate today = LocalDate.now();
         for (Assignment assignment : toDoList) {
@@ -107,5 +101,8 @@ public class Planner {
         }
         System.out.println("\nYou have " + count + " late assignments due.");
     } 
+
+
+
 
 }
