@@ -73,19 +73,33 @@ public class Main {
         while (running) {
         
         LocalDate date = LocalDate.now();
-        System.out.println("\nToday's date is " + date.getMonth() + "-" + date.getDayOfMonth() + "-"+ date.getYear());
+        System.out.println("\nToday's date is " + date.getMonth() + "-" + date.getDayOfMonth() + "-" + date.getYear());
         System.out.println();
-        System.out.println("You have " + schoolYear.length + " assignments due in your planner.");
+        System.out.println("You have " + Colors.BOLD + Colors.GREEN + newSchoolYear.getLength() + Colors.RESET + " assignments due in your planner.");
+        try{
+            System.out.println("What would you like to do?");
+            Thread.sleep(100);
+            System.out.println("1. View assignments by subject");
+            Thread.sleep(100);
+            System.out.println("2. View assignments due in X days");
+            Thread.sleep(100);
+            System.out.println("3. View major assignments");
+            Thread.sleep(100);
+            System.out.println("4. View minor assignments");
+            Thread.sleep(100);
+            System.out.println("5. View completed assignments");
+            Thread.sleep(100);
+            System.out.println("6. Mark an assignment as completed");
+            Thread.sleep(100);
+            System.out.println("7. View late assignments");
+            Thread.sleep(100);
+            System.out.println("8. View all assignments");
+            Thread.sleep(100);
+            System.out.println("9. Exit");
+        }catch(InterruptedException e){
+            System.out.println("An error occurred while waiting: " + e.getMessage());
+        }
         
-        System.out.println("What would you like to do?");
-        System.out.println("1. View assignments by subject");
-        System.out.println("2. View assignments due within X days");
-        System.out.println("3. View major assignments");
-        System.out.println("4. View minor assignments");
-        System.out.println("5. View completed assignments");
-        System.out.println("6. Mark an assignment as completed");
-        System.out.println("7. View late assignments");
-        System.out.println("8. Exit");
         int choice;
         
         if (scanner.hasNextInt()) {
@@ -131,8 +145,17 @@ public class Main {
             System.out.println("============================");
             newSchoolYear.viewLateAssignments();
         } else if (choice == 8) {
+            System.out.println("Showing all assignments...");
+            System.out.println("============================");
+            newSchoolYear.viewAssignments();
+        } else if (choice == 9) {
             running = false;
             System.out.println("Exiting...");
+            try{
+                Thread.sleep(1000);
+            }catch(InterruptedException e){
+                System.out.println("An error occurred while waiting: " + e.getMessage());
+            }
         } else {
             System.out.println("Invalid choice.");
         }

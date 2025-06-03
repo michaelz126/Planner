@@ -4,6 +4,7 @@ class Assignment {
     private String dueDate;
     private boolean isMajor;
 
+    
 
     public Assignment(String s, String n, String d, boolean m) {
         name = n;
@@ -14,9 +15,9 @@ class Assignment {
 
     public String toString() {
         String type = "";
-        if (isMajor) type = "MAJOR";
-        else type = "MINOR";
-        return "Assignment{" + subject + ", " + name + ", " + dueDate + ", " + type + "}";
+        if (isMajor) type = Colors.RED + "MAJOR";
+        else type = Colors.BLUE + "MINOR";
+        return Colors.GREEN + "Assignment{" + Colors.RESET + subject + ", " + name + ", " + dueDate + ", " + type + Colors.GREEN + "}" + Colors.RESET;
     }
 
     public String getName() {
@@ -32,3 +33,4 @@ class Assignment {
         return isMajor;
     }
 }
+

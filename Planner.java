@@ -17,9 +17,19 @@ public class Planner {
     }
     
     public void viewAssignments() {
+
         for (Assignment assignment : toDoList) {
+                try{
+                    Thread.sleep(50);
+                }catch(InterruptedException e){
+                    System.out.println("Thread interrupted: " + e.getMessage());
+                }
             System.out.println(assignment);
         }
+    }
+
+    public int getLength() { // Returns the length of the to-do list
+        return toDoList.size();
     }
 
     public void viewAssignmentsBySubject(String subject) { //Option 1
@@ -71,6 +81,11 @@ public class Planner {
 
     public void viewCompletedAssignments() { //Option 5
         for (Assignment assignment : completedAssignments) {
+                try{
+                    Thread.sleep(100);
+                }catch(InterruptedException e){
+                    System.out.println("Thread interrupted: " + e.getMessage());
+                }
             System.out.println(assignment);
         }
     }
@@ -81,11 +96,11 @@ public class Planner {
             if (assignment.getName().equalsIgnoreCase(name)) {
                 completedAssignments.add(assignment);
                 toDoList.remove(assignment);
-                System.out.println("\nMarked " + name + " as completed.");
+                System.out.println(Colors.GREEN + "\nMarked " + name + " as completed." + Colors.RESET);
                 return;
             }
         }
-        System.out.println("Assignment not found.");
+        System.out.println(Colors.BOLDRED + "\nASSIGNMENT NOT FOUND." + Colors.RESET);
     }
 
 
@@ -96,10 +111,15 @@ public class Planner {
             LocalDate dueDate = LocalDate.parse(assignment.getDueDate());
             if (dueDate.isBefore(today)) {
                 count++;
+                try{
+                    Thread.sleep(100);
+                }catch(InterruptedException e){
+                    System.out.println("Thread interrupted: " + e.getMessage());
+                }
                 System.out.println(assignment);
             }
         }
-        System.out.println("\nYou have " + count + " late assignments due.");
+        System.out.println(Colors.ORANGE + "\nYou have "  + count + " late assignments due." + Colors.RESET);
     } 
 
 
