@@ -16,7 +16,7 @@ class Assignment {
         String type = "";
         if (isMajor) type = "MAJOR";
         else type = "MINOR";
-        return "Assignment{" + name + ", " + subject + ", " + dueDate + ", " + type + "}";
+        return "Assignment{" + subject + ", " + name + ", " + dueDate + ", " + type + "}";
     }
 
     public String getName() {
