@@ -18,7 +18,7 @@ public class Main {
             new Assignment("English", "Final Essay", "2025-06-02", true),
             new Assignment("Physics", "Physics Final Exam", "2025-06-03", true),
             new Assignment("History", "Historical Essay", "2025-05-15", false),
-            new Assignment("CSA", "Final Project", "2025-06-01", true),
+            new Assignment("CSA", "Final Project", "2025-06-02", true),
             new Assignment("Chemistry", "Worksheet", "2025-04-16", false),
             new Assignment("Biology", "Lab Report", "2025-03-27", false),
             new Assignment("Art", "Painting Project", "2025-06-10", true),

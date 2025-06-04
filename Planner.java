@@ -36,7 +36,6 @@ public class Planner {
         boolean found = false;
         for (Assignment assignment : toDoList) {
             if (assignment.getSubject().equalsIgnoreCase(subject)) {
-            System.out.println(assignment);
             found = true;
             }
         }
